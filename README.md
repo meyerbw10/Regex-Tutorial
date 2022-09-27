@@ -37,7 +37,7 @@ The characters '^' and '$' are both considered to be anchors.
 
 * The "^" tag can be used to search for characters where that line starts with that character or string. For example, if we had a line of code, "My Little Brother Ben is a lad.", "^M" will highlight the character "M", which indicates that this line of code starts with the character "M".
 
-* The "Dollarsign" anchor tag is used to find keywords that end in whatever string or character you put right before the "Dollarsign" tag. If we are searching for an email, like we are in my example, "test@gmail.com" I would use ".com$" in order to search for an email. Of course, due to links also ending in ".com", I would have to specific further, which I will be going to explain further down below.
+* The "Dollarsign" anchor tag is used to find keywords that end in whatever string or character you put right before the "Dollarsign" tag. If we are searching for an email, like we are in my example, "test@gmail.com" I would use ".com$" in order to search for an email. Of course, due to links also ending in ".com", I would have to specific further, which I will be going to explain further down below. But for the sake of this example visualize it that way looking back at our Main Email matcher example.
 
 
 ## Quantifiers
@@ -74,16 +74,26 @@ A character class in a regex defines a set of characters, any one of which can o
 
 ## The OR Operator
 
+The "|" tag is used as an OR operator, meaning that it will take "A" OR "B". Check this example below for a better visual
+
+* "([a-z0-9]{6} | [a-z0-9]{3})"
+
+* Our expression will take a six length string of characters "a" through "z" / "0" through "9" OR a three legnth string of characters "a" through "z" / "0" through "9". Remember, our "[]" define which characters we are looking for, and our "{}" will set the specific length we want those characters to be.
 
 
 ## Flags
 
 Flags are placed at the end of a regex, after the second slash, and they define additional functionality or limits for the regex.
 
+* "g" is a global search, meaning it will try every character within a string to see if it matches the constraints.
 
+* "i" makes your search case-insensitive, so even if you search for "THE", "the" will still highlight.
+
+* "m" is a multi-line search.
 
 ## Character Escapes
 
+The "" tag ends your search for whatever you input for your search. Though we do not use "" within our function, you can use this tag in order to end your search. You can also use "" in order to search for specical characters. This would be useful if you are looking for brackets or any other specical character that we use to define our constraints for a search.
 
 
 ---
