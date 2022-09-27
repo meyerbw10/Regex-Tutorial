@@ -6,9 +6,7 @@ This regular expression (regex) tutorial was made in order to teach those who ei
 
 Regular Expressions are a string of characters that express a search pattern and this document will provide an expression to locate hex values as well as present a broad idea of regular expressions (regex). By the end of this document, you will read how to use regex on a basic level as well as have a better understanding on the syntax of regex.
 
-Matching a Hex Value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
-
-Link to deployed website: https://github.com/meyerbw10/Regex-Tutorial
+Link to Repo https://github.com/meyerbw10/Regex-Tutorial
 
 ---
 ## Table of Contents
@@ -22,32 +20,74 @@ Link to deployed website: https://github.com/meyerbw10/Regex-Tutorial
 - [Flags](#flags)
 - [Character Escapes](#character-escapes)
 
---- 
+
+
+![](/images/regex.jpeg)
 
 ## Regex Components
 
----
-
-### Anchors
-
-### Quantifiers
-
-### Grouping Constructs
-
-### Bracket Expressions
-
-### Character Classes
-
-### The OR Operator
-
-### Flags
-
-### Character Escapes
-
+We are going to be using Matching an Email: **^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$** code as my example. It looks like Giberish now but by then end you'll be able to look at it and it make more sense.
 
 
 ---
-## Author
+
+## Anchors
+
+The characters '^' and '$' are both considered to be anchors.
+
+* The "^" tag can be used to search for characters where that line starts with that character or string. For example, if we had a line of code, "My Little Brother Ben is a lad.", "^M" will highlight the character "M", which indicates that this line of code starts with the character "M".
+
+* The "Dollarsign" anchor tag is used to find keywords that end in whatever string or character you put right before the "Dollarsign" tag. If we are searching for an email, like we are in my example, "test@gmail.com" I would use ".com$" in order to search for an email. Of course, due to links also ending in ".com", I would have to specific further, which I will be going to explain further down below.
+
+
+## Quantifiers
+
+Now, picking up where I left off in the Anchors tag. the $ in our example code has these Brackets {} behind it with numbers inside them {2,6}. So based on what I said before then we are looking for something with the numbers 2 and 6 at the end. But thats not what it means. The {} Brackets are Quantifiers. Quantifiers can only be used in conjunction with other tags. They cannot be used separately. They are used in order to specify your search further.
+
+* The "{}" tags are used to define how many times you want a character to repeat. Within our Matching an Email example, "([a-z\.]{2,6})", the "2" & "6" within the curly brackets ("{}") are specifying that we want What we are searching for to be between 2 and 6 characters , a-z or 0-9. It can be any combination, but it must only be letters between "a" and "z" or numbers between "0" and "9".
+
+* The + tag is a quantifer. The Plus tag goes in at the end of our first two Parenthises paired Brackets. What the + tag is used for here is that it is telling us that we need to match with at least one of those paramaters in the brackets ([*here*]+)
+
+
+## Grouping Constructs
+
+Parenthesis, or "()" are used to group your string for one single search. Take our Emailer locator for example," ^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$ ". Within the parenthesis, we have 6 tags here that we use to define our constraints ("[] & +" , "[] & +" , "[] & {}").
+
+
+## Bracket Expressions
+
+In our Email locator, you will find "[a-z0-9\.-]". The hyphen, or "-" is similar to "through". "a-z" will be looking for letters "a" through "z". Same thing with number "0" through "9". Our expression will only be looking for characters "a-z" or "0-9". but also it has the "\" tag which adds thats its looking for "."'s and "-"'s as well!
+ 
+
+## Character Classes
+
+A character class in a regex defines a set of characters, any one of which can occur in an input string to fulfill a match. 
+
+* "." is like an all search. It will highlight anything except for a line break (\n).
+
+* "\d" refers to "digit". Essentially it is anything "0" through "9".
+
+* "\w" refers to alphanumeric characters (Uppercase and lowercase A-Z, 0-9, and the "_" or underscore).
+
+* "\s" refers to a space, line breaks, and tabs (basically any blank space).
+
+
+## The OR Operator
+
+
+
+## Flags
+
+Flags are placed at the end of a regex, after the second slash, and they define additional functionality or limits for the regex.
+
+
+
+## Character Escapes
+
+
+
+---
+# Author
 
 My name is Bradley Meyer, I am currently enrolled in The Ohio State University as a Full-Stack Developer Bootcamp student. I am open to learn any language and look forward to making connections with anyone within the computer science field.
 
